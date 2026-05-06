@@ -159,6 +159,149 @@ The `Defects4J-Cli-9-buggy` project uses Ant instead of Maven, so IntelliJ won't
 
 <br>
 
+---
+
+## Answer Key
+
+This section contains the ground truth for each project: what the bug is, where it is, which test fails, and the expected Javelin rankings from previous runs. Use this to verify your evaluation results.
+
+The rankings below use **statement-level dense ranking**, which is the default granularity most evaluators will see. If you switch to method-level granularity, your rankings may differ.
+
+<br>
+
+### Cli-9: Apache Commons CLI
+
+A command-line argument parsing library for Java.
+
+**Bug Type:** Exception Handling
+
+**What's wrong:** When multiple required options are missing, the error message concatenates them without a comma separator. For example, it produces `"Missing required options: fx"` instead of `"Missing required options: f, x"`. The loop in `Parser.java` appends each option name directly without any delimiter between them.
+
+**Bug Location:**
+
+| Class | Line(s) |
+|---|---|
+| `org.apache.commons.cli.Parser` | 322 |
+
+**Failing Test:** `org.apache.commons.cli.OptionsTest#testMissingOptionsException`
+
+**Expected Javelin Rankings:**
+
+| Algorithm | Rank |
+|---|---|
+| Ochiai | 1 |
+| Ochiai-MS | 1 |
+| Winner | Tie |
+
+<br>
+
+### Csv-8: Apache Commons CSV
+
+A library for reading and writing CSV files.
+
+**Bug Type:** Data Structure
+
+**What's wrong:** When validating a `CSVFormat` with duplicate header names, the code throws an `IllegalStateException` instead of the expected `IllegalArgumentException`. The validation logic in `CSVFormat.validate()` correctly detects duplicates but uses the wrong exception type.
+
+**Bug Location:**
+
+| Class | Line(s) |
+|---|---|
+| `org.apache.commons.csv.CSVFormat` | 316, 665-671 |
+
+**Failing Test:** `org.apache.commons.csv.CSVFormatTest#testDuplicateHeaderElements`
+
+**Expected Javelin Rankings:**
+
+| Algorithm | Rank |
+|---|---|
+| Ochiai | 1 |
+| Ochiai-MS | 1 |
+| Winner | Tie |
+
+<br>
+
+### Gson-13: Google Gson
+
+A JSON serialization and deserialization library.
+
+**Bug Type:** Wrong Condition
+
+**What's wrong:** The JSON reader incorrectly parses negative zero (`-0`). When reading the number, it drops the negative sign and returns `"0"` instead of `"-0"`. The condition that determines whether a number is negative has a logic error in `JsonReader.peekNumber()`.
+
+**Bug Location:**
+
+| Class | Line(s) |
+|---|---|
+| `com.google.gson.stream.JsonReader` | 731 |
+
+**Failing Test:** `com.google.gson.stream.JsonReaderTest#testNegativeZero`
+
+**Expected Javelin Rankings:**
+
+| Algorithm | Rank |
+|---|---|
+| Ochiai | 18 |
+| Ochiai-MS | 13 |
+| Winner | Ochiai-MS Better |
+
+<br>
+
+### JacksonDatabind-13: Jackson Databind
+
+A JSON data-binding library that maps JSON to Java objects.
+
+**Bug Type:** Null Handling
+
+**What's wrong:** When deserializing a JSON object with a null `id` field (used for object identity references), the code passes the null value to `findObjectId()` without checking for it first. This causes a `NullPointerException` inside `DefaultDeserializationContext.findObjectId()` when it tries to generate a key from the null id.
+
+**Bug Location:**
+
+| Class | Line(s) |
+|---|---|
+| `com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty` | 93 |
+| `com.fasterxml.jackson.databind.deser.DefaultDeserializationContext` | 88 |
+
+**Failing Test:** `com.fasterxml.jackson.databind.struct.TestObjectIdDeserialization#testNullObjectId`
+
+**Expected Javelin Rankings:**
+
+| Algorithm | Rank |
+|---|---|
+| Ochiai | 27 |
+| Ochiai-MS | 406 |
+| Winner | Ochiai Better |
+
+<br>
+
+### Jsoup-1: jsoup
+
+An HTML parsing and manipulation library.
+
+**Bug Type:** Wrong Method Call
+
+**What's wrong:** When parsing an HTML snippet like `"foo <b>bar</b> baz"`, the text `"foo"` ends up in the root node instead of the body. During normalization, the code moves nodes into the body in a way that reorders the text content. The result is `"bar baz foo"` instead of the expected `"foo bar baz"`.
+
+**Bug Location:**
+
+| Class | Line(s) |
+|---|---|
+| `org.jsoup.nodes.Document` | 125-126 |
+
+**Failing Test:** `org.jsoup.parser.ParserTest#createsStructureFromBodySnippet`
+
+**Expected Javelin Rankings:**
+
+| Algorithm | Rank |
+|---|---|
+| Ochiai | 1 |
+| Ochiai-MS | 1 |
+| Winner | Tie |
+
+<br>
+
+---
+
 ## Troubleshooting
 
 | Problem | Solution |
