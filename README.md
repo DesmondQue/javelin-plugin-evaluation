@@ -8,7 +8,7 @@ When a Java project has failing tests, Javelin analyzes which lines of code are 
 
 Instead of manually reading stack traces and stepping through a debugger, you get a prioritized list pointing you toward the fault. This technique is called *Spectrum-Based Fault Localization*.
 
-Each project is a real open-source library with a real bug. Your job is to open each project, run Javelin, and evaluate how helpful the results are.
+Each project is a real open-source library with a real bug. To evaluate the plugin, build the project, run Javelin, and answer the survey provided based on ISO 25010 metrics.
 
 <br>
 
