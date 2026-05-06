@@ -35,7 +35,7 @@ Each project is a real open-source library with a real bug. To evaluate the plug
 
 | Folder | Library | Build System | Description |
 |---|---|---|---|
-| `Defects4J-Cli-9-buggy` | Apache Commons CLI 1.1 | Ant | Command-line argument parsing library |
+| `Defects4J-Cli-9-buggy` | Apache Commons CLI 1.1 | Maven | Command-line argument parsing library |
 | `Defects4J-Csv-8-buggy` | Apache Commons CSV 1.0 | Maven | CSV file reading/writing library |
 | `Defects4J-Gson-13-buggy` | Google Gson 2.8.1 | Maven | JSON serialization/deserialization library |
 | `Defects4J-JacksonDatabind-13-buggy` | Jackson Databind 2.5.3 | Maven | JSON data-binding library |
@@ -119,11 +119,9 @@ You will need to set this for each project you open. If IntelliJ prompts you abo
 
 ## Building the Project
 
-For **Maven projects** (Csv, Gson, JacksonDatabind, Jsoup), IntelliJ will automatically import dependencies and compile the project after you load the `pom.xml`. Wait for the build to finish (you can check the progress bar at the bottom of the IDE).
+All five projects use Maven. IntelliJ will automatically import dependencies and compile the project after you load the `pom.xml`. Wait for the build to finish (you can check the progress bar at the bottom of the IDE).
 
 If the build does not start automatically, run **Build > Build Project** (`Ctrl+F9`).
-
-For the **Ant project** (Cli-9), see the [special instructions below](#cli-9-ant-project-setup).
 
 <br>
 
@@ -147,25 +145,6 @@ Once the project is open and compiled:
    - **Green**: Low (covered by tests but not implicated)
 
 To clear results: **Tools > Clear Javelin Results**.
-
-<br>
-
-## Cli-9 Ant Project Setup
-
-The `Defects4J-Cli-9-buggy` project uses Ant instead of Maven, so IntelliJ won't auto-detect the project structure. After opening the folder:
-
-1. Go to **File > Project Structure** (`Ctrl+Alt+Shift+S`).
-
-2. Under **Modules**, click **+** > **Import Module** and select the `Defects4J-Cli-9-buggy` folder.
-
-3. Mark the source directories:
-
-   - `src/java` as **Sources**
-   - `src/test` as **Tests**
-
-4. Under **Libraries**, click **+** > **Java** and add any JARs from the `target/lib` folder (if present). You may also need to add JUnit to the classpath manually.
-
-5. Click **Apply** and then build the project with **Build > Build Project** (`Ctrl+F9`).
 
 <br>
 
@@ -375,8 +354,7 @@ An HTML parsing and manipulation library.
 |---|---|
 | Javelin tool window not visible | Go to **View > Tool Windows > Javelin**, or check that the plugin is installed under **Settings > Plugins** |
 | "No compiled classes found" | Build the project first (`Ctrl+F9` or `mvn compile test-compile`) |
-| Auto-Detect doesn't find paths | Ensure IntelliJ has finished indexing (check the progress bar at the bottom) and that the project has been imported as a Maven/Ant project |
+| Auto-Detect doesn't find paths | Ensure IntelliJ has finished indexing (check the progress bar at the bottom) and that the project has been imported as a Maven project |
 | Maven import fails | Try **File > Invalidate Caches > Invalidate and Restart**, then re-import |
-| Cli-9 won't compile | Ensure source roots are set correctly in Project Structure and JUnit is on the classpath |
 
 </div>
