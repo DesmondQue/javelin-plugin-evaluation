@@ -175,7 +175,7 @@ The `Defects4J-Cli-9-buggy` project uses Ant instead of Maven, so IntelliJ won't
 
 This section contains the ground truth for each project: what the bug is, where it is, which test fails, and the expected Javelin rankings from previous runs. Use this to verify your evaluation results.
 
-The rankings below use **statement-level dense ranking**, which is the default granularity most evaluators will see. If you switch to method-level granularity, your rankings may differ.
+The rankings below use **statement-level dense ranking**, which is the default setting for Javelin. If you switch to method-level granularity, your rankings may differ.
 
 The times listed were recorded on different hardware per project and are provided only as a rough reference. Your actual times will vary depending on your machine.
 
