@@ -175,6 +175,12 @@ This section contains the ground truth for each project: what the bug is, where 
 
 The rankings below use **statement-level dense ranking**, which is the default granularity most evaluators will see. If you switch to method-level granularity, your rankings may differ.
 
+The times listed were recorded on different hardware per project and are provided only as a rough reference. Your actual times will vary depending on your machine.
+
+- **Cli-9, Gson-13**: AMD Ryzen 5 2600 (6 cores / 12 threads)
+- **Csv-8, Jsoup-1**: Intel i7-6700K (4 cores / 8 threads)
+- **JacksonDatabind-13**: AMD Ryzen 7 5700X (8 cores / 16 threads)
+
 <br>
 
 ### Cli-9: Apache Commons CLI
@@ -201,11 +207,10 @@ A command-line argument parsing library for Java.
 
 <div align="center">
 
-| Algorithm | Rank |
-|---|---|
-| Ochiai | 1 |
-| Ochiai-MS | 1 |
-| Winner | Tie |
+| Algorithm | Rank | Time on Previous Run |
+|---|---|---|
+| Ochiai | 1 | ~2s |
+| Ochiai-MS | 1 | ~40s |
 
 </div>
 
@@ -235,11 +240,10 @@ A library for reading and writing CSV files.
 
 <div align="center">
 
-| Algorithm | Rank |
-|---|---|
-| Ochiai | 1 |
-| Ochiai-MS | 1 |
-| Winner | Tie |
+| Algorithm | Rank | Time on Previous Run |
+|---|---|---|
+| Ochiai | 1 | ~52s |
+| Ochiai-MS | 1 | ~83s |
 
 </div>
 
@@ -269,11 +273,10 @@ A JSON serialization and deserialization library.
 
 <div align="center">
 
-| Algorithm | Rank |
-|---|---|
-| Ochiai | 18 |
-| Ochiai-MS | 13 |
-| Winner | Ochiai-MS Better |
+| Algorithm | Rank | Time on Previous Run |
+|---|---|---|
+| Ochiai | 18 | ~10s |
+| Ochiai-MS | 13 | ~8 min |
 
 </div>
 
@@ -304,11 +307,10 @@ A JSON data-binding library that maps JSON to Java objects.
 
 <div align="center">
 
-| Algorithm | Rank |
-|---|---|
-| Ochiai | 27 |
-| Ochiai-MS | 406 |
-| Winner | Ochiai Better |
+| Algorithm | Rank | Time on Previous Run |
+|---|---|---|
+| Ochiai | 27 | ~12s |
+| Ochiai-MS | 406 | ~71 min |
 
 </div>
 
@@ -338,11 +340,10 @@ An HTML parsing and manipulation library.
 
 <div align="center">
 
-| Algorithm | Rank |
-|---|---|
-| Ochiai | 1 |
-| Ochiai-MS | 1 |
-| Winner | Tie |
+| Algorithm | Rank | Time on Previous Run |
+|---|---|---|
+| Ochiai | 1 | ~2s |
+| Ochiai-MS | 1 | ~3 min |
 
 </div>
 
