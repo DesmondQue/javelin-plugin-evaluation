@@ -1,6 +1,6 @@
 # Javelin Plugin Evaluation
 
-This repository contains five Java projects with **known, pre-seeded bugs** for you to evaluate the [Javelin](https://github.com/DesmondQue/javelin-plugin-intellij) IntelliJ IDEA plugin.
+This repository contains five Java projects with **known, pre-seeded bugs** sourced from the [Defects4J](https://github.com/rjust/defects4j) benchmark. These projects are used to evaluate the [Javelin](https://github.com/DesmondQue/javelin-plugin-intellij) IntelliJ IDEA plugin.
 
 **What does Javelin do?**
 
@@ -8,7 +8,7 @@ When a Java project has failing tests, Javelin analyzes which lines of code are 
 
 Instead of manually reading stack traces and stepping through a debugger, you get a prioritized list pointing you toward the fault. This technique is called *Spectrum-Based Fault Localization*.
 
-Each project in this repo is a real open-source library with a real bug injected from the [Defects4J](https://github.com/rjust/defects4j) benchmark. Your job is to open each project, run Javelin, and evaluate how helpful the results are.
+Each project is a real open-source library with a real bug. Your job is to open each project, run Javelin, and evaluate how helpful the results are.
 
 <br>
 
