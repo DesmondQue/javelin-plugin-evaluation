@@ -18,20 +18,8 @@ Each project in this repo is a real open-source library with a real bug injected
 |---|---|
 | **IntelliJ IDEA** | **2025.1 to 2025.3.x** (Community or Ultimate) |
 | **Java JDK** | **JDK 8** installed and configured in IntelliJ (see [Setting Up JDK 8 in IntelliJ](#setting-up-jdk-8-in-intellij)) |
-| **Javelin Plugin** | Installed in IntelliJ (see below) |
+| **Javelin Plugin** | Already installed and set up in IntelliJ. See the [Javelin Releases page](https://github.com/DesmondQue/javelin-plugin-intellij/releases) or this [setup video](https://youtu.be/1LKd19rKLDM?si=tK2A6MdbYXEMwOdE). |
 | **Git** | To clone this repository |
-
-<br>
-
-### Installing the Javelin Plugin
-
-1. Download the latest **`javelin-plugin-0.4.0.zip`** from the [Javelin Releases page](https://github.com/DesmondQue/javelin-plugin-intellij/releases).
-
-2. In IntelliJ, go to **Settings > Plugins > Gear icon (⚙) > Install Plugin from Disk...**
-
-3. Select the downloaded `.zip` file.
-
-4. Restart IntelliJ when prompted.
 
 <br>
 
@@ -49,43 +37,25 @@ All five projects require **JDK 8** to build. See [Setting Up JDK 8 in IntelliJ]
 
 <br>
 
-## How to Open the Projects
+## How to Get the Projects
 
 > **Important:** Javelin requires IntelliJ to have a **single project** open. You cannot open the entire repository as one project. Each project folder must be opened individually.
 
-You have two options for getting the projects:
-
-<br>
-
-### Option A: Clone the entire repository (recommended if evaluating multiple projects)
+Clone the repository to get all five projects at once:
 
 ```bash
 git clone https://github.com/DesmondQue/javelin-plugin-evaluation.git
 ```
 
-This gives you all five projects at once. You will then open each project folder individually in IntelliJ (see Step 2).
+You can also download each project's ZIP individually from the [repository on GitHub](https://github.com/DesmondQue/javelin-plugin-evaluation).
 
 <br>
 
-### Option B: Download a single project (if you only need one)
-
-1. Go to the [repository on GitHub](https://github.com/DesmondQue/javelin-plugin-evaluation).
-
-2. Navigate into the project folder you want (e.g., `Defects4J-Csv-8-buggy`).
-
-3. Click the **Code** button near the top-right, then click **Download ZIP**. Alternatively, from the project folder view, click **⋯ (More options) > Download directory**.
-
-4. Extract the ZIP to a location of your choice.
-
-> **Note:** GitHub does not natively support downloading a single subfolder. The simplest alternative is to use a tool like [download-directory](https://download-directory.github.io/). Paste the URL of the project folder (e.g., `https://github.com/DesmondQue/javelin-plugin-evaluation/tree/main/Defects4J-Csv-8-buggy`) and it will download just that folder as a ZIP.
-
-<br>
-
-### Step 2: Open a project in IntelliJ
+## Opening a Project in IntelliJ
 
 1. In IntelliJ, go to **File > Open**.
 
-2. Navigate **into** the project folder (e.g., `javelin-plugin-evaluation/Defects4J-Csv-8-buggy` if you cloned, or the extracted folder if you downloaded).
+2. Navigate **into** the project folder (e.g., `javelin-plugin-evaluation/Defects4J-Csv-8-buggy`).
 
 3. Click **OK / Open**.
 
@@ -94,39 +64,6 @@ This gives you all five projects at once. You will then open each project folder
 5. For Maven projects, IntelliJ will prompt you to import the `pom.xml`. Click **Load as Maven Project** (or enable auto-import).
 
 To switch between projects, use **File > Open** and select a different project folder.
-
-<br>
-
-### Step 3: Build the project
-
-For **Maven projects** (Csv, Gson, JacksonDatabind, Jsoup), IntelliJ will automatically import dependencies and compile the project after you load the `pom.xml`. Wait for the build to finish (you can check the progress bar at the bottom of the IDE).
-
-If the build does not start automatically, run **Build > Build Project** (`Ctrl+F9`).
-
-For the **Ant project** (Cli-9), see the [special instructions below](#cli-9-ant-project-setup).
-
-<br>
-
-## Running Javelin
-
-Once the project is open and compiled:
-
-1. Open the **Javelin tool window** at the bottom of the IDE.
-
-2. Click **Auto-Detect**. Javelin will find your compiled classes, test classes, and classpath automatically.
-
-3. Click **Run Javelin Analysis** (or press `Ctrl+Shift+J`).
-
-4. Wait for the analysis to complete. The results panel will show a ranked list of suspicious lines.
-
-5. **Double-click any row** to jump to that line in the editor. Suspicious lines are highlighted with colors:
-
-   - **Red**: Critical (top 10% most suspicious)
-   - **Orange**: High (top 25%)
-   - **Yellow**: Medium (suspicious, score > 0)
-   - **Green**: Low (covered by tests but not implicated)
-
-To clear results: **Tools > Clear Javelin Results**.
 
 <br>
 
@@ -167,6 +104,39 @@ If you don't have JDK 8 installed, IntelliJ can download it for you.
 4. Click **Apply**, then **OK**.
 
 You will need to set this for each project you open. If IntelliJ prompts you about a missing SDK when you first open a project, use the steps above to configure it.
+
+<br>
+
+## Building the Project
+
+For **Maven projects** (Csv, Gson, JacksonDatabind, Jsoup), IntelliJ will automatically import dependencies and compile the project after you load the `pom.xml`. Wait for the build to finish (you can check the progress bar at the bottom of the IDE).
+
+If the build does not start automatically, run **Build > Build Project** (`Ctrl+F9`).
+
+For the **Ant project** (Cli-9), see the [special instructions below](#cli-9-ant-project-setup).
+
+<br>
+
+## Running Javelin
+
+Once the project is open and compiled:
+
+1. Open the **Javelin tool window** at the bottom of the IDE.
+
+2. Click **Auto-Detect**. Javelin will find your compiled classes, test classes, and classpath automatically.
+
+3. Click **Run Javelin Analysis** (or press `Ctrl+Shift+J`).
+
+4. Wait for the analysis to complete. The results panel will show a ranked list of suspicious lines.
+
+5. **Double-click any row** to jump to that line in the editor. Suspicious lines are highlighted with colors:
+
+   - **Red**: Critical (top 10% most suspicious)
+   - **Orange**: High (top 25%)
+   - **Yellow**: Medium (suspicious, score > 0)
+   - **Green**: Low (covered by tests but not implicated)
+
+To clear results: **Tools > Clear Javelin Results**.
 
 <br>
 
