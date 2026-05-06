@@ -14,6 +14,8 @@ Each project in this repo is a real open-source library with a real bug injected
 
 ## Requirements
 
+<div align="center">
+
 | Requirement | Details |
 |---|---|
 | **IntelliJ IDEA** | **2025.1 to 2025.3.x** (Community or Ultimate) |
@@ -21,9 +23,13 @@ Each project in this repo is a real open-source library with a real bug injected
 | **Javelin Plugin** | Already installed and set up in IntelliJ. See the [Javelin Releases page](https://github.com/DesmondQue/javelin-plugin-intellij/releases) or this [setup video](https://youtu.be/1LKd19rKLDM?si=tK2A6MdbYXEMwOdE). |
 | **Git** | To clone this repository |
 
+</div>
+
 <br>
 
 ## Projects in This Repo
+
+<div align="center">
 
 | Folder | Library | Build System | Description |
 |---|---|---|---|
@@ -32,6 +38,8 @@ Each project in this repo is a real open-source library with a real bug injected
 | `Defects4J-Gson-13-buggy` | Google Gson 2.8.1 | Maven | JSON serialization/deserialization library |
 | `Defects4J-JacksonDatabind-13-buggy` | Jackson Databind 2.5.3 | Maven | JSON data-binding library |
 | `Defects4J-Jsoup-1-buggy` | jsoup 1.1.2 | Maven | HTML parsing library |
+
+</div>
 
 All five projects require **JDK 8** to build. See [Setting Up JDK 8 in IntelliJ](#setting-up-jdk-8-in-intellij) for setup instructions.
 
@@ -175,23 +183,31 @@ A command-line argument parsing library for Java.
 
 **Bug Type:** Exception Handling
 
-**What's wrong:** When multiple required options are missing, the error message concatenates them without a comma separator. For example, it produces `"Missing required options: fx"` instead of `"Missing required options: f, x"`. The loop in `Parser.java` appends each option name directly without any delimiter between them.
+**Bug Description:** When multiple required options are missing, the error message concatenates them without a comma separator. For example, it produces `"Missing required options: fx"` instead of `"Missing required options: f, x"`. The loop in `Parser.java` appends each option name directly without any delimiter between them.
 
 **Bug Location:**
+
+<div align="center">
 
 | Class | Line(s) |
 |---|---|
 | `org.apache.commons.cli.Parser` | 322 |
 
+</div>
+
 **Failing Test:** `org.apache.commons.cli.OptionsTest#testMissingOptionsException`
 
 **Expected Javelin Rankings:**
+
+<div align="center">
 
 | Algorithm | Rank |
 |---|---|
 | Ochiai | 1 |
 | Ochiai-MS | 1 |
 | Winner | Tie |
+
+</div>
 
 <br>
 
@@ -201,23 +217,31 @@ A library for reading and writing CSV files.
 
 **Bug Type:** Data Structure
 
-**What's wrong:** When validating a `CSVFormat` with duplicate header names, the code throws an `IllegalStateException` instead of the expected `IllegalArgumentException`. The validation logic in `CSVFormat.validate()` correctly detects duplicates but uses the wrong exception type.
+**Bug Description:** When validating a `CSVFormat` with duplicate header names, the code throws an `IllegalStateException` instead of the expected `IllegalArgumentException`. The validation logic in `CSVFormat.validate()` correctly detects duplicates but uses the wrong exception type.
 
 **Bug Location:**
+
+<div align="center">
 
 | Class | Line(s) |
 |---|---|
 | `org.apache.commons.csv.CSVFormat` | 316, 665-671 |
 
+</div>
+
 **Failing Test:** `org.apache.commons.csv.CSVFormatTest#testDuplicateHeaderElements`
 
 **Expected Javelin Rankings:**
+
+<div align="center">
 
 | Algorithm | Rank |
 |---|---|
 | Ochiai | 1 |
 | Ochiai-MS | 1 |
 | Winner | Tie |
+
+</div>
 
 <br>
 
@@ -227,23 +251,31 @@ A JSON serialization and deserialization library.
 
 **Bug Type:** Wrong Condition
 
-**What's wrong:** The JSON reader incorrectly parses negative zero (`-0`). When reading the number, it drops the negative sign and returns `"0"` instead of `"-0"`. The condition that determines whether a number is negative has a logic error in `JsonReader.peekNumber()`.
+**Bug Description:** The JSON reader incorrectly parses negative zero (`-0`). When reading the number, it drops the negative sign and returns `"0"` instead of `"-0"`. The condition that determines whether a number is negative has a logic error in `JsonReader.peekNumber()`.
 
 **Bug Location:**
+
+<div align="center">
 
 | Class | Line(s) |
 |---|---|
 | `com.google.gson.stream.JsonReader` | 731 |
 
+</div>
+
 **Failing Test:** `com.google.gson.stream.JsonReaderTest#testNegativeZero`
 
 **Expected Javelin Rankings:**
+
+<div align="center">
 
 | Algorithm | Rank |
 |---|---|
 | Ochiai | 18 |
 | Ochiai-MS | 13 |
 | Winner | Ochiai-MS Better |
+
+</div>
 
 <br>
 
@@ -253,24 +285,32 @@ A JSON data-binding library that maps JSON to Java objects.
 
 **Bug Type:** Null Handling
 
-**What's wrong:** When deserializing a JSON object with a null `id` field (used for object identity references), the code passes the null value to `findObjectId()` without checking for it first. This causes a `NullPointerException` inside `DefaultDeserializationContext.findObjectId()` when it tries to generate a key from the null id.
+**Bug Description:** When deserializing a JSON object with a null `id` field (used for object identity references), the code passes the null value to `findObjectId()` without checking for it first. This causes a `NullPointerException` inside `DefaultDeserializationContext.findObjectId()` when it tries to generate a key from the null id.
 
 **Bug Location:**
+
+<div align="center">
 
 | Class | Line(s) |
 |---|---|
 | `com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty` | 93 |
 | `com.fasterxml.jackson.databind.deser.DefaultDeserializationContext` | 88 |
 
+</div>
+
 **Failing Test:** `com.fasterxml.jackson.databind.struct.TestObjectIdDeserialization#testNullObjectId`
 
 **Expected Javelin Rankings:**
+
+<div align="center">
 
 | Algorithm | Rank |
 |---|---|
 | Ochiai | 27 |
 | Ochiai-MS | 406 |
 | Winner | Ochiai Better |
+
+</div>
 
 <br>
 
@@ -280,17 +320,23 @@ An HTML parsing and manipulation library.
 
 **Bug Type:** Wrong Method Call
 
-**What's wrong:** When parsing an HTML snippet like `"foo <b>bar</b> baz"`, the text `"foo"` ends up in the root node instead of the body. During normalization, the code moves nodes into the body in a way that reorders the text content. The result is `"bar baz foo"` instead of the expected `"foo bar baz"`.
+**Bug Description:** When parsing an HTML snippet like `"foo <b>bar</b> baz"`, the text `"foo"` ends up in the root node instead of the body. During normalization, the code moves nodes into the body in a way that reorders the text content. The result is `"bar baz foo"` instead of the expected `"foo bar baz"`.
 
 **Bug Location:**
+
+<div align="center">
 
 | Class | Line(s) |
 |---|---|
 | `org.jsoup.nodes.Document` | 125-126 |
 
+</div>
+
 **Failing Test:** `org.jsoup.parser.ParserTest#createsStructureFromBodySnippet`
 
 **Expected Javelin Rankings:**
+
+<div align="center">
 
 | Algorithm | Rank |
 |---|---|
@@ -298,11 +344,15 @@ An HTML parsing and manipulation library.
 | Ochiai-MS | 1 |
 | Winner | Tie |
 
+</div>
+
 <br>
 
 ---
 
 ## Troubleshooting
+
+<div align="center">
 
 | Problem | Solution |
 |---|---|
@@ -311,3 +361,5 @@ An HTML parsing and manipulation library.
 | Auto-Detect doesn't find paths | Ensure IntelliJ has finished indexing (check the progress bar at the bottom) and that the project has been imported as a Maven/Ant project |
 | Maven import fails | Try **File > Invalidate Caches > Invalidate and Restart**, then re-import |
 | Cli-9 won't compile | Ensure source roots are set correctly in Project Structure and JUnit is on the classpath |
+
+</div>
