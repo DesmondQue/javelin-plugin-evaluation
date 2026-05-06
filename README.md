@@ -11,7 +11,7 @@ Each project in this repo is a real open-source library with a real bug injected
 | Requirement | Details |
 |---|---|
 | **IntelliJ IDEA** | **2025.1 to 2025.3.x** (Community or Ultimate) |
-| **Java JDK** | JDK 8 or later installed and configured in IntelliJ |
+| **Java JDK** | **JDK 8** installed and configured in IntelliJ (see [Setting Up JDK 8 in IntelliJ](#setting-up-jdk-8-in-intellij)) |
 | **Javelin Plugin** | Installed in IntelliJ (see below) |
 | **Git** | To clone this repository |
 
@@ -31,6 +31,8 @@ Each project in this repo is a real open-source library with a real bug injected
 | `Defects4J-Gson-13-buggy` | Google Gson 2.8.1 | Maven | JSON serialization/deserialization library |
 | `Defects4J-JacksonDatabind-13-buggy` | Jackson Databind 2.5.3 | Maven | JSON data-binding library |
 | `Defects4J-Jsoup-1-buggy` | jsoup 1.1.2 | Maven | HTML parsing library |
+
+All five projects require **JDK 8** to build. See [Setting Up JDK 8 in IntelliJ](#setting-up-jdk-8-in-intellij) for setup instructions.
 
 ## How to Open the Projects
 
@@ -86,6 +88,30 @@ Once the project is open and compiled:
    - **Green**: Low (covered by tests but not implicated)
 
 To clear results: **Tools > Clear Javelin Results**.
+
+## Setting Up JDK 8 in IntelliJ
+
+All five projects require **JDK 8** to build correctly. Newer JDK versions (11, 17, 21) have dropped support for some of the older Java language levels these projects target, which will cause build errors. If you don't have JDK 8 installed, IntelliJ can download it for you.
+
+### Downloading JDK 8 through IntelliJ
+
+1. Go to **File > Project Structure** (`Ctrl+Alt+Shift+S`).
+2. In the left panel, select **SDKs** under **Platform Settings**.
+3. Click the **+** button at the top, then select **Download JDK...**
+4. In the dialog that appears:
+   - Set **Version** to **1.8** (this is Java 8).
+   - Choose a vendor (e.g., **Amazon Corretto**, **Eclipse Temurin**, or **Oracle OpenJDK**).
+   - Choose a download location or leave the default.
+5. Click **Download** and wait for it to finish.
+
+### Setting JDK 8 as the Project SDK
+
+1. Still in **File > Project Structure**, select **Project** under **Project Settings** in the left panel.
+2. Under **SDK**, select the JDK 8 you just downloaded from the dropdown.
+3. Under **Language level**, select **8** (or match the project's required version from the table above).
+4. Click **Apply**, then **OK**.
+
+You will need to set this for each project you open. If IntelliJ prompts you about a missing SDK when you first open a project, use the steps above to configure it.
 
 ## Cli-9 Ant Project Setup
 
