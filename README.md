@@ -191,6 +191,8 @@ A command-line argument parsing library for Java.
 
 **Bug Type:** Exception Handling
 
+**Test Cases:** 110 total (108 passed, 2 failed)
+
 **Bug Description:** When multiple required options are missing, the error message concatenates them without a comma separator. For example, it produces `"Missing required options: fx"` instead of `"Missing required options: f, x"`. The loop in `Parser.java` appends each option name directly without any delimiter between them.
 
 **Bug Location:**
@@ -224,6 +226,8 @@ A library for reading and writing CSV files.
 
 **Bug Type:** Data Structure
 
+**Test Cases:** 193 total (192 passed, 1 failed)
+
 **Bug Description:** When validating a `CSVFormat` with duplicate header names, the code throws an `IllegalStateException` instead of the expected `IllegalArgumentException`. The validation logic in `CSVFormat.validate()` correctly detects duplicates but uses the wrong exception type.
 
 **Bug Location:**
@@ -256,6 +260,8 @@ A library for reading and writing CSV files.
 A JSON serialization and deserialization library.
 
 **Bug Type:** Wrong Condition
+
+**Test Cases:** 1000 total (999 passed, 1 failed)
 
 **Bug Description:** The JSON reader incorrectly parses negative zero (`-0`). When reading the number, it drops the negative sign and returns `"0"` instead of `"-0"`. The condition that determines whether a number is negative has a logic error in `JsonReader.peekNumber()`.
 
@@ -292,6 +298,8 @@ A JSON data-binding library that maps JSON to Java objects.
 
 **Bug Type:** Null Handling
 
+**Test Cases:** 1357 total (1332 passed, 25 failed)
+
 **Bug Description:** When deserializing a JSON object with a null `id` field (used for object identity references), the code passes the null value to `findObjectId()` without checking for it first. This causes a `NullPointerException` inside `DefaultDeserializationContext.findObjectId()` when it tries to generate a key from the null id.
 
 **Bug Location:**
@@ -325,6 +333,8 @@ A JSON data-binding library that maps JSON to Java objects.
 An HTML parsing and manipulation library.
 
 **Bug Type:** Wrong Method Call
+
+**Test Cases:** 139 total (138 passed, 1 failed)
 
 **Bug Description:** When parsing an HTML snippet like `"foo <b>bar</b> baz"`, the text `"foo"` ends up in the root node instead of the body. During normalization, the code moves nodes into the body in a way that reorders the text content. The result is `"bar baz foo"` instead of the expected `"foo bar baz"`.
 
