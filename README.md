@@ -10,6 +10,8 @@ Instead of manually reading stack traces and stepping through a debugger, you ge
 
 Each project is a real open-source library with a real bug. To evaluate the plugin, build the project, run Javelin, and answer the [evaluation survey](https://docs.google.com/forms/d/e/1FAIpQLSc-YG8pAwAuWYa9QkohE7aEzuil0uCPXHa46fpCnDZGOqEO1w/viewform?usp=sharing&ouid=113467552741314971171) based on ISO 25010 quality metrics.
 
+> **Note:** You do not need to evaluate all five projects. Pick whichever ones you have time for. We have also included previous run rankings in the [Answer Key](#answer-key) so you can compare your results without running every project yourself.
+
 <br>
 
 ## Requirements
@@ -283,6 +285,8 @@ A JSON serialization and deserialization library.
 <br>
 
 ### JacksonDatabind-13: Jackson Databind
+
+> **Not recommended for Ochiai-MS.** This project took over an hour to evaluate with Ochiai-MS on a Ryzen 7 5700X. It is included here so evaluators can see what worst-case performance looks like for larger codebases, but we recommend using Ochiai only when evaluating this project.
 
 A JSON data-binding library that maps JSON to Java objects.
 
