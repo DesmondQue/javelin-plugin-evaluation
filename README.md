@@ -10,7 +10,7 @@ Instead of manually reading stack traces and stepping through a debugger, you ge
 
 Each project is a real open-source library with a real bug. To evaluate the plugin, build the project, run Javelin, and answer the [evaluation survey](https://docs.google.com/forms/d/e/1FAIpQLSc-YG8pAwAuWYa9QkohE7aEzuil0uCPXHa46fpCnDZGOqEO1w/viewform?usp=sharing&ouid=113467552741314971171) based on ISO 25010 quality metrics.
 
-> **Note:** You do not need to evaluate all five projects. Pick whichever ones you have time for. We have also included previous run rankings in the [Answer Key](#answer-key) so you can compare your results without running every project yourself.
+> **Note:** You do not need to evaluate all five projects. Pick whichever ones you have time for. We have also included previous run rankings in the [Answer Key](#answer-key) so you can compare your results without running every project yourself. Screenshots of previous runs are available in the [`images-previous-runs/`](images-previous-runs/) folder.
 
 <br>
 
@@ -182,6 +182,8 @@ The times listed were recorded on different hardware per project and are provide
 - **Cli-9, Gson-13**: AMD Ryzen 5 2600 (6 cores / 12 threads)
 - **Csv-8, Jsoup-1**: Intel i7-6700K (4 cores / 8 threads)
 - **JacksonDatabind-13**: AMD Ryzen 7 5700X (8 cores / 16 threads)
+
+Screenshots of these previous runs can be found in the [`images-previous-runs/`](images-previous-runs/) folder.
 
 <br>
 
