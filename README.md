@@ -286,7 +286,7 @@ A JSON serialization and deserialization library.
 
 ### JacksonDatabind-13: Jackson Databind
 
-> **Not recommended for Ochiai-MS.** This project took over an hour to evaluate with Ochiai-MS on a Ryzen 7 5700X. It is included here so evaluators can see what worst-case performance looks like for larger codebases, but we recommend using Ochiai only when evaluating this project.
+> **Not recommended for Ochiai-MS.** This project took over an hour to evaluate with Ochiai-MS on a Ryzen 7 5700X, and the ranking also degraded significantly (from rank 27 with Ochiai to rank 406 with Ochiai-MS). JacksonDatabind's architecture relies heavily on deep inheritance, delegation, and polymorphic dispatch, which means many lines are executed by passing tests without actually being relevant to the bug. Ochiai-MS misinterprets this as low diagnostic value and demotes the actual faulty lines. This project is included so evaluators can see what worst-case performance looks like, but we recommend using Ochiai only when evaluating it.
 
 A JSON data-binding library that maps JSON to Java objects.
 
