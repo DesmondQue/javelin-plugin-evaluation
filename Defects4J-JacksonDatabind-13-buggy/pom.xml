@@ -62,6 +62,10 @@ javax.xml.datatype, javax.xml.namespace, javax.xml.parsers
     <!-- Generate PackageVersion.java into this directory. -->
     <packageVersion.dir>com/fasterxml/jackson/databind/cfg</packageVersion.dir>
     <packageVersion.package>com.fasterxml.jackson.databind.cfg</packageVersion.package>
+
+    <!-- Override parent's 1.6 source/target for JDK 11 compatibility -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
