@@ -302,10 +302,12 @@ A JSON data-binding library that maps JSON to Java objects.
 
 | Algorithm | Rank | Time on Previous Run |
 |---|---|---|
-| Ochiai | 27 | ~12s |
+| Ochiai | 27 (other line: 35) | ~12s |
 | Ochiai-MS | 406 | ~71 min |
 
 </div>
+
+> **Note:** Since both buggy lines are related (the null `id` flows from `ObjectIdValueProperty` line 93 into `DefaultDeserializationContext` line 88), the rank shown is the highest (best) of the two. The other buggy line ranked lower in both runs.
 
 <br>
 
