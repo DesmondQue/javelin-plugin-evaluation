@@ -21,7 +21,7 @@ Each project is a real open-source library with a real bug. To evaluate the plug
 | Requirement | Details |
 |---|---|
 | **IntelliJ IDEA** | **2025.1 to 2025.3.x** (Community or Ultimate) |
-| **Java JDK** | **JDK 8** installed and configured in IntelliJ (see [Setting Up JDK 8 in IntelliJ](#setting-up-jdk-8-in-intellij)) |
+| **Java JDK** | **JDK 11** installed and configured in IntelliJ (see [Setting Up JDK 11 in IntelliJ](#setting-up-jdk-11-in-intellij)) |
 | **Javelin Plugin** | Already installed and set up in IntelliJ. See the [Javelin Releases page](https://github.com/DesmondQue/javelin-plugin-intellij/releases) or this [setup video](https://youtu.be/1LKd19rKLDM?si=tK2A6MdbYXEMwOdE). |
 | **Git** | To clone this repository |
 
@@ -43,7 +43,7 @@ Each project is a real open-source library with a real bug. To evaluate the plug
 
 </div>
 
-All five projects require **JDK 8** to build. See [Setting Up JDK 8 in IntelliJ](#setting-up-jdk-8-in-intellij) for setup instructions.
+All five projects require **JDK 11** to build. See [Setting Up JDK 11 in IntelliJ](#setting-up-jdk-11-in-intellij) for setup instructions.
 
 <br>
 
@@ -77,15 +77,15 @@ To switch between projects, use **File > Open** and select a different project f
 
 <br>
 
-## Setting Up JDK 8 in IntelliJ
+## Setting Up JDK 11 in IntelliJ
 
-All five projects require **JDK 8** to build correctly. Newer JDK versions (11, 17, 21) have dropped support for some of the older Java language levels these projects target, which will cause build errors.
+All five projects require **JDK 11** to build correctly. JDK 11 works the cleanest without warnings for these projects. Newer JDK versions (17, 21) have dropped support for some of the older Java language levels these projects target, which may cause build errors.
 
-If you don't have JDK 8 installed, IntelliJ can download it for you.
+If you don't have JDK 11 installed, IntelliJ can download it for you.
 
 <br>
 
-### Downloading JDK 8 through IntelliJ
+### Downloading JDK 11 through IntelliJ
 
 1. Go to **File > Project Structure** (`Ctrl+Alt+Shift+S`).
 
@@ -95,7 +95,7 @@ If you don't have JDK 8 installed, IntelliJ can download it for you.
 
 4. In the dialog that appears:
 
-   - Set **Version** to **1.8** (this is Java 8).
+   - Set **Version** to **11**.
    - Choose a vendor (e.g., **Amazon Corretto**, **Eclipse Temurin**, or **Oracle OpenJDK**).
    - Choose a download location or leave the default.
 
@@ -103,11 +103,11 @@ If you don't have JDK 8 installed, IntelliJ can download it for you.
 
 <br>
 
-### Setting JDK 8 as the Project SDK
+### Setting JDK 11 as the Project SDK
 
 1. Still in **File > Project Structure**, select **Project** under **Project Settings** in the left panel.
 
-2. Under **SDK**, select the JDK 8 you just downloaded from the dropdown.
+2. Under **SDK**, select the JDK 11 you just downloaded from the dropdown.
 
 3. Under **Language level**, select **8** (or match the project's required version from the table above).
 
