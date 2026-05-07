@@ -289,7 +289,6 @@ A JSON data-binding library that maps JSON to Java objects.
 
 | Class | Line(s) |
 |---|---|
-| `com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty` | 93 |
 | `com.fasterxml.jackson.databind.deser.DefaultDeserializationContext` | 88 |
 
 </div>
