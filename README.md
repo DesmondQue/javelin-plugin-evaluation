@@ -96,7 +96,7 @@ If you don't have JDK 11 installed, IntelliJ can download it for you.
 4. In the dialog that appears:
 
    - Set **Version** to **11**.
-   - Choose a vendor (e.g., **Amazon Corretto**, **Eclipse Temurin**, or **Oracle OpenJDK**).
+   - Choose a vendor (e.g., **Amazon Corretto**, **Eclipse Temurin**, or **Microsoft OpenJDK**).
    - Choose a download location or leave the default.
 
 5. Click **Download** and wait for it to finish.
